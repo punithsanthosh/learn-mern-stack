@@ -1,10 +1,10 @@
 console.log("hellooooo");
 function greet(name)
 {
-    return 'hello ${name}!!'
+    return `hello ${name}!!`
 }
 const arrowFunc=(name)=>{
-    return 'hello ${name}!!'
+    return `hello ${name}!!`
 }
 console.log(greet("muthoot"));
 console.log(arrowFunc("muthoot arrow function"));
@@ -29,4 +29,4 @@ const promise = new Promise((resolve,reject) =>{
             reject("failed the task");
         }, 5000);
 });
-promise.then((data)=>{console.log("res:",data)},(err)=>{console.log("failed")})
+promise.then((data)=>{console.log("res:",data)},(err)=>{console.error(err)})
