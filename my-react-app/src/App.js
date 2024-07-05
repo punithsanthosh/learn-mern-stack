@@ -1,52 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
-import  Header from '../src/components/header';
-import Card from '../src/components/card';
-import {useState} from "react";
-import Input from './components/input';
+import logo from "./logo.svg";
+import "./App.css";
+import React, { useState } from "react";
+import Header from "../src/components/header";
+import Card from "../src/components/card";
+import Task from "./components/task";
+import Input from "./components/input";
+import About from "./components/About";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
-  const initialTasks = [
-    {
-    id: 1,
-    taskName: "punith"
-    },{
-      id: 2,
-      taskName: "santhosh"
-    }
-
-  ]
-  
-  
-    const [tasks, setTasks]= useState(initialTasks);
-
-    const addTaskHandler = (taskName) =>{
-      const newTask={
-        id:Math.random(),
-        taskName:taskName
-      }
-      setTasks(prev => [...prev,newTask])
-    }
-    const completeTaskHandler = () => {
-
-      }
-  
   return (
     <div className="App">
-      <Header/> 
+      <Header />
       <main>
-        <Input addTaskHandler={addTaskHandler}/>
-        
-        {tasks.map(task=> <Card taskname={task.taskname} />)}
-        <Card taskName="Task 1"/>
-        <Card taskName="Learn React"/>
-        <Card taskName="Make a table  "/>
+        <ul>
+          <li>
+            <Link to={"/"}>Task</Link>
+          </li>
+          <li>
+            <Link to={"/about"}>About</Link>
+          </li>
+        </ul>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Task />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </BrowserRouter>
       </main>
-      
-        </div>
+    </div>
   );
-
-    
-  
 }
 
 export default App;

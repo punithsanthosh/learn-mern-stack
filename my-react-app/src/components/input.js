@@ -8,7 +8,8 @@ const Input = (props) => {
             console.log(e.target.value);
         }    
 const handleSubmit = (e) => {
-    if(!isVAlid)
+    const isValid=true;
+    if(!isValid)
         {
             alert("invalid text")
         }
@@ -20,12 +21,7 @@ const handleSubmit = (e) => {
         e.preventDefault();
         props.addTaskHandler(inputText);
     }
-    useEffect{()=>{
-        if(inputText.length>0)
-            {
 
-            }
-    }
     return (
             <form onSubmit={handleSubmit}>
                 <input
